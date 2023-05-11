@@ -11,5 +11,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-8.0.22" level="project" />
     <orderEntry type="library" name="lombok-1.18.27" level="project" />
+    <orderEntry type="library" name="spark-md5-3.0.0" level="project" />
   </component>
 </module>

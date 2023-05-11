@@ -1,6 +1,9 @@
 package com.lenjoy.utils;
 //实现菜单的动态选择
 
+import com.lenjoy.controller.MenuInfoController;
+import com.lenjoy.dao.MenuInfoDao;
+import com.lenjoy.dao.impl.MenuInfoDaoImpl;
 import com.lenjoy.entity.MenuInfo;
 
 import java.lang.reflect.InvocationTargetException;
@@ -37,5 +40,21 @@ public class TrendsSwitchUtil {
             System.err.println("执行方法失败");
             e.printStackTrace();
         }
+    }
+
+    //统一的返回上一级
+    public static void roolbackMethod(){
+        //获取当前选中菜单的父级id
+        Integer pId = SessionUtil.menuInfo.getPId();
+        if (pId!=-1){
+            MenuInfoDao dao=new MenuInfoDaoImpl();
+            SessionUtil.menuInfo=dao.getMenuInfoById(pId);
+            invokeMethod();
+        }else {
+            //直接调用主菜单的方法
+            MenuInfoController controller=new MenuInfoController();
+            controller.showMainMenu();
+        }
+
     }
 }

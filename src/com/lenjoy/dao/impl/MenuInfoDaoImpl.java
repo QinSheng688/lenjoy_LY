@@ -28,4 +28,9 @@ public class MenuInfoDaoImpl extends BaseDao<MenuInfo>implements MenuInfoDao {
                 menuInfo.getUpdateUser()
         );
     }
+
+    @Override
+    public MenuInfo getMenuInfoById(Integer id) {
+        return selectOne("select * from t_menu_info where id=?",MenuInfo.class,id);
+    }
 }

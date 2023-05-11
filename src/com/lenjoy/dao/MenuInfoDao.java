@@ -16,4 +16,8 @@ public interface MenuInfoDao {
     //menu菜单对象
     //返回受影响行数用来判断是否添加成功
     int addMenuInfo(MenuInfo menuInfo);
+
+
+    //根据菜单id获取菜单对象
+    MenuInfo getMenuInfoById(Integer id);
 }
